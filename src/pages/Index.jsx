@@ -34,7 +34,7 @@ const Index = () => {
   );
 };
 
-const WelcomeSection = ({ onSectionChange }: { onSectionChange: (section: string) => void }) => {
+const WelcomeSection = ({ onSectionChange }) => {
   const features = [
     {
       id: 'chat',

@@ -2,17 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Clock, TrendingUp, CloudRain, Sprout } from 'lucide-react';
 
-interface NewsItem {
-  id: string;
-  title: string;
-  summary: string;
-  category: string;
-  timestamp: string;
-  icon: any;
-}
-
 export const NewsSection = () => {
-  const newsItems: NewsItem[] = [
+  const newsItems = [
     {
       id: '1',
       title: 'Monsoon Update: Heavy Rainfall Expected',
@@ -39,7 +30,7 @@ export const NewsSection = () => {
     },
   ];
 
-  const getCategoryColor = (category: string) => {
+  const getCategoryColor = (category) => {
     switch (category) {
       case 'Weather':
         return 'bg-blue-100 text-blue-800 hover:bg-blue-200';

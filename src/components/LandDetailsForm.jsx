@@ -8,19 +8,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { MapPin, Save, Calculator } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-interface LandDetails {
-  farmerName: string;
-  landSize: string;
-  soilType: string;
-  cropType: string;
-  location: string;
-  irrigationMethod: string;
-  additionalNotes: string;
-}
-
 export const LandDetailsForm = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState<LandDetails>({
+  const [formData, setFormData] = useState({
     farmerName: '',
     landSize: '',
     soilType: '',
@@ -30,11 +20,11 @@ export const LandDetailsForm = () => {
     additionalNotes: '',
   });
 
-  const handleInputChange = (field: keyof LandDetails, value: string) => {
+  const handleInputChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // Here you would typically save to a database
     toast({

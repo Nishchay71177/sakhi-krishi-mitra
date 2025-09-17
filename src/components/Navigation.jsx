@@ -2,12 +2,7 @@ import { useState } from 'react';
 import { MessageSquare, Newspaper, MapPin, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-interface NavigationProps {
-  activeSection: string;
-  onSectionChange: (section: string) => void;
-}
-
-export const Navigation = ({ activeSection, onSectionChange }: NavigationProps) => {
+export const Navigation = ({ activeSection, onSectionChange }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [

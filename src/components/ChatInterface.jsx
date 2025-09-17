@@ -4,15 +4,9 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Send, Bot, User, Sprout } from 'lucide-react';
 
-interface Message {
-  id: string;
-  content: string;
-  isUser: boolean;
-  timestamp: Date;
-}
 
 export const ChatInterface = () => {
-  const [messages, setMessages] = useState<Message[]>([
+  const [messages, setMessages] = useState([
     {
       id: '1',
       content: "Namaste! I'm Sakhi, your farming assistant. How can I help you with your crops today?",
@@ -25,7 +19,7 @@ export const ChatInterface = () => {
   const handleSendMessage = () => {
     if (!inputValue.trim()) return;
 
-    const userMessage: Message = {
+    const userMessage = {
       id: Date.now().toString(),
       content: inputValue,
       isUser: true,
@@ -37,7 +31,7 @@ export const ChatInterface = () => {
 
     // Simulate AI response
     setTimeout(() => {
-      const aiResponse: Message = {
+      const aiResponse = {
         id: (Date.now() + 1).toString(),
         content: generateAIResponse(inputValue),
         isUser: false,
@@ -47,7 +41,7 @@ export const ChatInterface = () => {
     }, 1000);
   };
 
-  const generateAIResponse = (userInput: string): string => {
+  const generateAIResponse = (userInput) => {
     const responses = [
       "Based on your query, I recommend checking soil moisture levels and considering organic fertilizers for better crop yield.",
       "Weather conditions look favorable for planting. Make sure to maintain proper irrigation schedules.",
