@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { MessageSquare, Newspaper, MapPin, Menu, X } from 'lucide-react';
+import { MessageSquare, Newspaper, MapPin, Menu, X, Home, LayoutDashboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const Navigation = ({ activeSection, onSectionChange }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
+    { id: 'welcome', label: 'Home', icon: Home },
+    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { id: 'chat', label: 'Ask Sakhi', icon: MessageSquare },
     { id: 'news', label: 'Farm News', icon: Newspaper },
     { id: 'land', label: 'Land Details', icon: MapPin },

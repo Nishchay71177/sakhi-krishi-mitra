@@ -1,18 +1,21 @@
 import { useState } from 'react';
 import { Navigation } from '@/components/Navigation';
+import { Dashboard } from '@/components/Dashboard';
 import { ChatInterface } from '@/components/ChatInterface';
 import { NewsSection } from '@/components/NewsSection';
 import { LandDetailsForm } from '@/components/LandDetailsForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, Newspaper, MapPin, ArrowRight } from 'lucide-react';
+import { MessageSquare, Newspaper, MapPin, ArrowRight, LayoutDashboard } from 'lucide-react';
 import farmingHero from '@/assets/farming-hero.jpg';
 
 const Index = () => {
-  const [activeSection, setActiveSection] = useState('welcome');
+  const [activeSection, setActiveSection] = useState('dashboard');
 
   const renderContent = () => {
     switch (activeSection) {
+      case 'dashboard':
+        return <Dashboard />;
       case 'chat':
         return <ChatInterface />;
       case 'news':
@@ -37,11 +40,18 @@ const Index = () => {
 const WelcomeSection = ({ onSectionChange }) => {
   const features = [
     {
+      id: 'dashboard',
+      title: 'Smart Dashboard',
+      description: 'Complete farming dashboard with weather, analytics, and AI assistance',
+      icon: LayoutDashboard,
+      color: 'bg-gradient-to-br from-primary to-primary-glow',
+    },
+    {
       id: 'chat',
       title: 'Ask Sakhi',
       description: 'Get AI-powered farming advice and solutions to your agricultural questions',
       icon: MessageSquare,
-      color: 'bg-gradient-to-br from-primary to-primary-glow',
+      color: 'bg-gradient-to-br from-teal-500 to-teal-600',
     },
     {
       id: 'news',
@@ -77,11 +87,11 @@ const WelcomeSection = ({ onSectionChange }) => {
                 Your intelligent farming companion for better crops and higher yields
               </p>
               <Button 
-                onClick={() => onSectionChange('chat')}
+                onClick={() => onSectionChange('dashboard')}
                 size="lg"
                 className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-3"
               >
-                Start Chatting with Sakhi
+                Open Smart Dashboard
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </div>
